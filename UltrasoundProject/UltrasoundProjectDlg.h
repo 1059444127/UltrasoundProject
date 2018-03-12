@@ -1,9 +1,14 @@
 
 // UltrasoundProjectDlg.h : header file
 //
-
+#include <iostream> 
+#include <vector>
+#include <string>
 #pragma once
 
+
+using namespace std;
+extern	vector<string> wordString;
 
 // CUltrasoundProjectDlg dialog
 class CUltrasoundProjectDlg : public CDialogEx

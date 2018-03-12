@@ -39,6 +39,12 @@
     <ClInclude Include="LiveConnection.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CWMPPlayer4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayVideo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="UltrasoundProject.cpp">
@@ -54,6 +60,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="LiveConnection.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CWMPPlayer4.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayVideo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

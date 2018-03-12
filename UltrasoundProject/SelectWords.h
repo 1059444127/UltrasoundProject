@@ -22,4 +22,5 @@ protected:
 public:
     CListBox m_listBox;
 	afx_msg void OnLbnSelchangeList1();
+	afx_msg void OnBnClickedButton1();
 };

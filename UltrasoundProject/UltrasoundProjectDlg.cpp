@@ -8,12 +8,15 @@
 #include "afxdialogex.h"
 #include "SelectWords.h"
 #include "LiveConnection.h"
+#include <winsock.h> //need to put before mysql.h
+#include <mysql.h>//console project need to include <winsock.h>
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
 
 
+vector<string> wordString;
 // CAboutDlg dialog used for App About
 
 class CAboutDlg : public CDialogEx
@@ -163,5 +166,44 @@ void CUltrasoundProjectDlg::OnBnClickedOk()
    //show select words dialog
  //  sw_dlg.DoModal(); 
 
-   LiveConnection();
+  // LiveConnection();
+
+   MYSQL *pConn;
+ pConn = mysql_init(NULL);
+ //pConn, server address, username, password, dabatase name, mysql port number(0 meanas default 3306)
+ if(!mysql_real_connect(pConn,"localhost","root","","ultrasound_words",0,NULL,0))
+ {  
+	   MessageBox(_T("Fail to connet to database!"));
+
+//  printf("cannot connet to database:%s",mysql_error(pConn));
+  return;
+ }
+
+ if(mysql_query(pConn,"select * from words"))
+ {
+	  MessageBox(_T("Query failed!"));
+ // printf("Query failed:%s",mysql_error(pConn));
+  return;
+ }else{
+
+  //printf("success");
+//  AfxMessageBox(_T("success!"));
+
+ }
+
+ //mysql_store_result是把查询结果一次性取到客户端的离线数据集，当结果比较大时耗内存。
+ //mysql_use_result则是查询结果放在服务器上，客户端通过指针逐行读取，节省客户端内存。但是一个MYSQL*连接同时只能有一个未关闭的mysql_use_result查询
+ MYSQL_RES *result = mysql_store_result(pConn);
+ MYSQL_ROW row;
+ while(row = mysql_fetch_row(result))
+ {
+ // printf("%s %s\n",row[1],row[2]);
+	// sw_dlg.m_listBox.AddString(CA2W(row[1]));
+	 wordString.push_back(row[1]);
+ }
+
+ mysql_free_result(result);
+ mysql_close(pConn);
+    sw_dlg.DoModal(); 
+
 }

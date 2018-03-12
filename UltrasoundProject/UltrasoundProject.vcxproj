@@ -56,10 +56,13 @@
       <SDLCheck>true</SDLCheck>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <ShowIncludes>true</ShowIncludes>
+      <AdditionalIncludeDirectories>C:\Program Files\MySQL\MySQL Server 5.5\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Program Files\MySQL\MySQL Server 5.5\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libmysql32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -103,7 +106,9 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CWMPPlayer4.h" />
     <ClInclude Include="LiveConnection.h" />
+    <ClInclude Include="PlayVideo.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="SelectWords.h" />
     <ClInclude Include="stdafx.h" />
@@ -112,7 +117,9 @@
     <ClInclude Include="UltrasoundProjectDlg.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CWMPPlayer4.cpp" />
     <ClCompile Include="LiveConnection.cpp" />
+    <ClCompile Include="PlayVideo.cpp" />
     <ClCompile Include="SelectWords.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -135,7 +142,7 @@
   </ImportGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties RESOURCE_FILE="UltrasoundProject.rc" />
+      <UserProperties RESOURCE_FILE="UltrasoundProject.rc" _x007B_6BF52A52-394A-11D3-B153-00C04F79FAA6_x007D_="CWMPPlayer4" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

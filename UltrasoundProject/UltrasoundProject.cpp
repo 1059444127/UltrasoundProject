@@ -5,6 +5,7 @@
 #include "stdafx.h"
 #include "UltrasoundProject.h"
 #include "UltrasoundProjectDlg.h"
+#include "CWMPPlayer4.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
