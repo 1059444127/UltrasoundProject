@@ -1,7 +1,172 @@
-﻿Build started 3/12/2018 11:24:18 AM.
+﻿Build started 3/12/2018 9:57:03 PM.
      1>Project "D:\用户目录\我的文档\Visual Studio 2012\Projects\UltrasoundProject\UltrasoundProject\UltrasoundProject.vcxproj" on node 2 (Build target(s)).
-     1>ResourceCompile:
-         C:\Program Files (x86)\Windows Kits\8.0\bin\x86\rc.exe /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /l"0x0409" /IDebug\ /nologo /fo"Debug\UltrasoundProject.res" UltrasoundProject.rc 
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Program Files\MySQL\MySQL Server 5.5\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _CRT_SECURE_NO_WARNINGS /D _UNICODE /D UNICODE /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\UltrasoundProject.pch" /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /showIncludes /analyze- /errorReport:prompt PlayVideo.cpp SelectWords.cpp
+         SelectWords.cpp
+         Note: including file: d:\用户目录\我的文档\visual studio 2012\projects\ultrasoundproject\ultrasoundproject\UltrasoundProject.h
+         Note: including file:  d:\用户目录\我的文档\visual studio 2012\projects\ultrasoundproject\ultrasoundproject\resource.h
+         Note: including file: d:\用户目录\我的文档\visual studio 2012\projects\ultrasoundproject\ultrasoundproject\SelectWords.h
+         Note: including file:  C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\atlmfc\include\afxwin.h
+         Note: including file:  C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\vector
+         Note: including file:   C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xmemory
+         Note: including file:    C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xmemory0
+         Note: including file:     C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\cstdlib
+         Note: including file:      C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\yvals.h
+         Note: including file:       C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xkeycheck.h
+         Note: including file:       C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\crtdefs.h
+         Note: including file:       C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\use_ansi.h
+         Note: including file:     C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\limits
+         Note: including file:      C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\ymath.h
+         Note: including file:      C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\cfloat
+         Note: including file:       C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\float.h
+         Note: including file:        C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\crtdefs.h
+         Note: including file:        C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\crtwrn.h
+         Note: including file:         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\crtdefs.h
+         Note: including file:      C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\climits
+         Note: including file:      C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\cmath
+         Note: including file:       C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\math.h
+         Note: including file:        C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\crtdefs.h
+         Note: including file:       C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xtgmath.h
+         Note: including file:        C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xtr1common
+         Note: including file:      C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\cwchar
+         Note: including file:      C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xstddef
+         Note: including file:       C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\cstddef
+         Note: including file:     C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\new
+         Note: including file:      C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\exception
+         Note: including file:       C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\eh.h
+         Note: including file:        C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\crtdefs.h
+         Note: including file:     C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xutility
+         Note: including file:      C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\utility
+         Note: including file:       C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\iosfwd
+         Note: including file:        C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\cstdio
+         Note: including file:        C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\cstring
+         Note: including file:       C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\type_traits
+         Note: including file:        C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xrefwrap
+         Note: including file:     C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xatomic0.h
+         Note: including file:     C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\intrin.h
+         Note: including file:      C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\crtdefs.h
+         Note: including file:      C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\setjmp.h
+         Note: including file:       C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\crtdefs.h
+         Note: including file:      C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\immintrin.h
+         Note: including file:       C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\wmmintrin.h
+         Note: including file:        C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\nmmintrin.h
+         Note: including file:         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\smmintrin.h
+         Note: including file:          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\tmmintrin.h
+         Note: including file:           C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\pmmintrin.h
+         Note: including file:            C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\emmintrin.h
+         Note: including file:             C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xmmintrin.h
+         Note: including file:              C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\mmintrin.h
+         Note: including file:               C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\crtdefs.h
+         Note: including file:      C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\ammintrin.h
+         Note: including file:      C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\mm3dnow.h
+         Note: including file:       C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\crtdefs.h
+         Note: including file:       C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\mmintrin.h
+         Note: including file:   C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdexcept
+         Note: including file:    C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xstring
+         Note: including file:  C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\string
+         Note: including file:   C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\iterator
+         Note: including file:    C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\istream
+         Note: including file:     C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\ostream
+         Note: including file:      C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\ios
+         Note: including file:       C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xlocnum
+         Note: including file:        C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\streambuf
+         Note: including file:         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xiosbase
+         Note: including file:          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xlocale
+         Note: including file:           C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\typeinfo
+         Note: including file:           C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xlocinfo
+         Note: including file:            C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xlocinfo.h
+         Note: including file:             C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\locale.h
+         Note: including file:              C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\crtdefs.h
+         Note: including file:           C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xdebug
+         Note: including file:           C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xfacet
+         Note: including file:          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\system_error
+         Note: including file:           C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\cerrno
+         Note: including file:          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\share.h
+         Note: including file: d:\用户目录\我的文档\visual studio 2012\projects\ultrasoundproject\ultrasoundproject\UltrasoundProjectDlg.h
+         Note: including file:  C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\iostream
+         Note: including file: d:\用户目录\我的文档\visual studio 2012\projects\ultrasoundproject\ultrasoundproject\PlayVideo.h
+         Note: including file:  d:\用户目录\我的文档\visual studio 2012\projects\ultrasoundproject\ultrasoundproject\CWMPPlayer4.h
+     1>d:\用户目录\我的文档\visual studio 2012\projects\ultrasoundproject\ultrasoundproject\selectwords.cpp(41): warning C4018: '<' : signed/unsigned mismatch
+         PlayVideo.cpp
+         Note: including file: d:\用户目录\我的文档\visual studio 2012\projects\ultrasoundproject\ultrasoundproject\UltrasoundProject.h
+         Note: including file:  d:\用户目录\我的文档\visual studio 2012\projects\ultrasoundproject\ultrasoundproject\resource.h
+         Note: including file: d:\用户目录\我的文档\visual studio 2012\projects\ultrasoundproject\ultrasoundproject\PlayVideo.h
+         Note: including file:  C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\string
+         Note: including file:   C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\iterator
+         Note: including file:    C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\istream
+         Note: including file:     C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\ostream
+         Note: including file:      C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\ios
+         Note: including file:       C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xlocnum
+         Note: including file:        C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\climits
+         Note: including file:         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\yvals.h
+         Note: including file:          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xkeycheck.h
+         Note: including file:          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\crtdefs.h
+         Note: including file:          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\use_ansi.h
+         Note: including file:        C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\cmath
+         Note: including file:         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\math.h
+         Note: including file:          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\crtdefs.h
+         Note: including file:         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xtgmath.h
+         Note: including file:          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xtr1common
+         Note: including file:        C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\cstdio
+         Note: including file:        C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\cstdlib
+         Note: including file:        C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\streambuf
+         Note: including file:         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xiosbase
+         Note: including file:          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xlocale
+         Note: including file:           C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\cstring
+         Note: including file:           C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdexcept
+         Note: including file:            C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\exception
+         Note: including file:             C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xstddef
+         Note: including file:              C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\cstddef
+         Note: including file:             C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\eh.h
+         Note: including file:              C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\crtdefs.h
+         Note: including file:            C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xstring
+         Note: including file:             C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xmemory0
+         Note: including file:              C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\limits
+         Note: including file:               C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\ymath.h
+         Note: including file:               C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\cfloat
+         Note: including file:                C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\float.h
+         Note: including file:                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\crtdefs.h
+         Note: including file:                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\crtwrn.h
+         Note: including file:                  C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\crtdefs.h
+         Note: including file:               C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\cwchar
+         Note: including file:              C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\new
+         Note: including file:              C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xutility
+         Note: including file:               C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\utility
+         Note: including file:                C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\iosfwd
+         Note: including file:                C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\type_traits
+         Note: including file:                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xrefwrap
+         Note: including file:              C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xatomic0.h
+         Note: including file:              C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\intrin.h
+         Note: including file:               C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\crtdefs.h
+         Note: including file:               C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\setjmp.h
+         Note: including file:                C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\crtdefs.h
+         Note: including file:               C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\immintrin.h
+         Note: including file:                C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\wmmintrin.h
+         Note: including file:                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\nmmintrin.h
+         Note: including file:                  C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\smmintrin.h
+         Note: including file:                   C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\tmmintrin.h
+         Note: including file:                    C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\pmmintrin.h
+         Note: including file:                     C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\emmintrin.h
+         Note: including file:                      C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xmmintrin.h
+         Note: including file:                       C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\mmintrin.h
+         Note: including file:                        C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\crtdefs.h
+         Note: including file:               C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\ammintrin.h
+         Note: including file:               C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\mm3dnow.h
+         Note: including file:                C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\crtdefs.h
+         Note: including file:                C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\mmintrin.h
+         Note: including file:           C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\typeinfo
+         Note: including file:           C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xlocinfo
+         Note: including file:            C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xlocinfo.h
+         Note: including file:             C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\locale.h
+         Note: including file:              C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\crtdefs.h
+         Note: including file:           C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xdebug
+         Note: including file:            C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xmemory
+         Note: including file:           C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xfacet
+         Note: including file:          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\system_error
+         Note: including file:           C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\cerrno
+         Note: including file:          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\share.h
+         Note: including file:  d:\用户目录\我的文档\visual studio 2012\projects\ultrasoundproject\ultrasoundproject\CWMPPlayer4.h
+         Generating Code...
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\用户目录\我的文档\Visual Studio 2012\Projects\UltrasoundProject\Debug\UltrasoundProject.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Program Files\MySQL\MySQL Server 5.5\lib" libmysql32.lib opencv_ml2413d.lib opencv_calib3d2413d.lib opencv_contrib2413d.lib opencv_core2413d.lib opencv_features2d2413d.lib opencv_flann2413d.lib opencv_gpu2413d.lib opencv_highgui2413d.lib opencv_imgproc2413d.lib opencv_legacy2413d.lib opencv_objdetect2413d.lib opencv_ts2413d.lib opencv_video2413d.lib opencv_nonfree2413d.lib opencv_ocl2413d.lib opencv_photo2413d.lib opencv_stitching2413d.lib opencv_superres2413d.lib opencv_videostab2413d.lib opencv_objdetect2413.lib opencv_ts2413.lib opencv_video2413.lib opencv_nonfree2413.lib opencv_ocl2413.lib opencv_photo2413.lib opencv_stitching2413.lib opencv_superres2413.lib opencv_videostab2413.lib opencv_calib3d2413.lib opencv_contrib2413.lib opencv_core2413.lib opencv_features2d2413.lib opencv_flann2413.lib opencv_gpu2413.lib opencv_highgui2413.lib opencv_imgproc2413.lib opencv_legacy2413.lib opencv_ml2413.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:"C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\Include\Manifest\dpiaware.manifest" /DEBUG /PDB:"D:\用户目录\我的文档\Visual Studio 2012\Projects\UltrasoundProject\Debug\UltrasoundProject.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /ENTRY:"wWinMainCRTStartup" /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\用户目录\我的文档\Visual Studio 2012\Projects\UltrasoundProject\Debug\UltrasoundProject.lib" /MACHINE:X86 Debug\UltrasoundProject.res
          Debug\CWMPPlayer4.obj
@@ -16,4 +181,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:03.86
+Time Elapsed 00:00:10.55

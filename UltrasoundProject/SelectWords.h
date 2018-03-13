@@ -1,7 +1,9 @@
 #pragma once
 #include "afxwin.h"
+#include <vector>
+#include <string>
 
-
+using namespace std;
 // SelectWords dialog
 
 class SelectWords : public CDialogEx
@@ -23,4 +25,7 @@ public:
     CListBox m_listBox;
 	afx_msg void OnLbnSelchangeList1();
 	afx_msg void OnBnClickedButton1();
+	string strSelect;
+	vector<string> add_vector;
+	afx_msg void OnBnClickedButton2();
 };

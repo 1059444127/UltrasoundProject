@@ -9,6 +9,7 @@
 
 using namespace std;
 extern	vector<string> wordString;
+extern	vector<string> pathString;
 
 // CUltrasoundProjectDlg dialog
 class CUltrasoundProjectDlg : public CDialogEx

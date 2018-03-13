@@ -1,9 +1,9 @@
 #pragma once
+#include <string>
 #include "CWMPPlayer4.h"
 
-
+using namespace std;
 // PlayVideo dialog
-
 class PlayVideo : public CDialogEx
 {
 	DECLARE_DYNAMIC(PlayVideo)
@@ -11,6 +11,7 @@ class PlayVideo : public CDialogEx
 public:
 	PlayVideo(CWnd* pParent = NULL);   // standard constructor
 	virtual ~PlayVideo();
+  
 
 // Dialog Data
 	enum { IDD = IDD_PLAYVIDEO };
@@ -22,4 +23,5 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	CWMPPlayer4 m_Player;
+	string strPath;
 };

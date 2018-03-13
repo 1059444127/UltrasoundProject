@@ -35,9 +35,12 @@ END_MESSAGE_MAP()
 BOOL PlayVideo::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
-
     // TODO: Add extra initialization here
-	m_Player.put_URL(_T("F:\\FullSizeRender.avi"));
+//	m_Player.put_URL(_T("F:\\FullSizeRender.avi"));
+	if(strPath.compare("NULL")!=0)
+	{
+	    m_Player.put_URL(CA2W(strPath.c_str()));
+	}
     return TRUE;
 }
 // PlayVideo message handlers

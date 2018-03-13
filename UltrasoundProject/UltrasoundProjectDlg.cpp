@@ -8,7 +8,7 @@
 #include "afxdialogex.h"
 #include "SelectWords.h"
 #include "LiveConnection.h"
-#include <winsock.h> //need to put before mysql.h
+#include <winsock.h> //need to put before mysql.hwordString
 #include <mysql.h>//console project need to include <winsock.h>
 
 #ifdef _DEBUG
@@ -17,6 +17,8 @@
 
 
 vector<string> wordString;
+vector<string> pathString;
+
 // CAboutDlg dialog used for App About
 
 class CAboutDlg : public CDialogEx
@@ -200,6 +202,13 @@ void CUltrasoundProjectDlg::OnBnClickedOk()
  // printf("%s %s\n",row[1],row[2]);
 	// sw_dlg.m_listBox.AddString(CA2W(row[1]));
 	 wordString.push_back(row[1]);
+	 char* temp = row[2];
+	 if(temp == NULL){
+	 pathString.push_back("NULL");
+	 }else{
+	 pathString.push_back(row[2]);
+	 }
+	 
  }
 
  mysql_free_result(result);

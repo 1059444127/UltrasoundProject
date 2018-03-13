@@ -10,7 +10,6 @@
 
 
 // SelectWords dialog
-
 IMPLEMENT_DYNAMIC(SelectWords, CDialogEx)
 
 SelectWords::SelectWords(CWnd* pParent /*=NULL*/)
@@ -31,20 +30,21 @@ void SelectWords::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(SelectWords, CDialogEx)
 	ON_LBN_SELCHANGE(IDC_LIST1, &SelectWords::OnLbnSelchangeList1)
 	ON_BN_CLICKED(IDC_BUTTON1, &SelectWords::OnBnClickedButton1)
+	ON_BN_CLICKED(IDC_BUTTON2, &SelectWords::OnBnClickedButton2)
 END_MESSAGE_MAP()
 
 BOOL SelectWords::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
 
+	// TODO: Add extra initialization here
 	for (int index = 0; index < wordString.size(); index++) {
-		m_listBox.AddString(CA2W(wordString[index].c_str()));         
+		m_listBox.AddString(CA2W(wordString[index].c_str()));  
+	//	add_list.AddString(CA2W(pathString[index].c_str()));
+		add_vector.push_back(pathString[index]); 
        }
-    // TODO: Add extra initialization here
-	//m_listBox.AddString(_T("Korea Career"));         
- //   m_listBox.AddString(_T("Pull Pool"));       
- //   m_listBox.AddString(_T("Virtual")); 
- //
+
+
     return TRUE;
 }
 
@@ -58,7 +58,8 @@ void SelectWords::OnLbnSelchangeList1()
     int nCurSel;   
         
     nCurSel = m_listBox.GetCurSel();            
-    m_listBox.GetText(nCurSel, strText);       
+    m_listBox.GetText(nCurSel, strText);    
+	strSelect = add_vector[nCurSel];
     SetDlgItemText(IDC_EDIT1, strText);
 }
 
@@ -68,5 +69,19 @@ void SelectWords::OnBnClickedButton1()
 	// TODO: Add your control notification handler code here
 	PlayVideo pv_dlg;
  //  ShowWindow(SW_HIDE);
-	 pv_dlg.DoModal(); 
+	pv_dlg.strPath = strSelect;
+	if(strSelect.compare("NULL")!=0)
+	{
+		pv_dlg.strPath = strSelect;
+		pv_dlg.DoModal(); 
+	}else{
+        MessageBox(_T("Canot find video!"));
+	}
+}
+
+
+void SelectWords::OnBnClickedButton2()
+{
+	// TODO: Add your control notification handler code here
+	PostMessage(WM_QUIT,0,0);
 }
