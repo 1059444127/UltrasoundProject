@@ -14,6 +14,8 @@
 #include <stdio.h>
 #include <windows.h>
 
+#define IDC_M_BTN 8888
+
 using namespace std;
 using namespace cv;
 
@@ -43,7 +45,6 @@ CvPoint init_pt = {-1,-1};
 CvPoint end_pt = {-1,-1};
 CvPoint min_pt, max_pt;
 bool hasCut = false;
-VideoWriter outputVideo;  
 int cropwidth, cropheight, xcor, ycor, mouthcenterx, mouthcentery;
 Rect box; 
 int tonguex = 180;
@@ -105,6 +106,11 @@ void removeBorder(char* stringName,IplImage* image)
 
 }
 
+BEGIN_MESSAGE_MAP(LiveConnection, CDialogEx)
+	ON_COMMAND_RANGE(IDC_M_BTN,IDC_M_BTN,OnButtonClick)
+END_MESSAGE_MAP()
+
+
 
 /** @function main */
 LiveConnection::LiveConnection(void)
@@ -122,20 +128,30 @@ LiveConnection::LiveConnection(void)
 	eyes_cascade.load(eyes_cascade_name);
 	nose_cascade.load(nose_cascade_name);
 	mouth_cascade.load(mouth_cascade_name);
-/*
+	/*
 	//-- 2. Read the video stream
 	capture = cvCaptureFromCAM( 0 ); //0=default, -1=any camera, 1..99=your camera
 	cvSetCaptureProperty(capture, CV_CAP_PROP_FPS, 60);
-*/
+	*/
 	capture = cvCaptureFromAVI(mysideProfile); // read AVI video
 	videoplayback = cvCaptureFromAVI(filename); // read AVI video
+
+
+	cvNamedWindow("Capture - Face detection", 0);
+	HWND  hWnd = (HWND)cvGetWindowHandle("Capture - Face detection");
+				CWnd* pWnd = CWnd::FromHandle(hWnd);
+				CButton* btn = new CButton;  
+				DWORD dwStyle = WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON;  
+				btn->Create(_T("Manipulate"), dwStyle,CRect(60, 20, 160,60),pWnd,IDC_M_BTN);
 
 	if( capture )
 	{
 
-		cvNamedWindow("ultrasound tongue", CV_WINDOW_AUTOSIZE);
+		/*cvNamedWindow("ultrasound tongue", CV_WINDOW_AUTOSIZE);
 		cvMoveWindow("ultrasound tongue", 0, 0);
-		cvSetWindowProperty("ultrasound tongue", CV_WINDOW_FULLSCREEN, CV_WINDOW_FULLSCREEN);
+		cvSetWindowProperty("ultrasound tongue", CV_WINDOW_FULLSCREEN, CV_WINDOW_FULLSCREEN);*/
+
+				 
 		while( true )
 		{
 			frame = cvQueryFrame( capture );
@@ -145,37 +161,50 @@ LiveConnection::LiveConnection(void)
 			{
 				break;
 			}
+			/*
 			if(delay>=0&&cvWaitKey (delay)>=0)  
 			{
-				cvNamedWindow("watershed transform", 0);
-				img = cvCloneImage( videoframe );
-				inpaint_mask = cvCreateImage( cvGetSize(img), 8, 1 );
-				cvSet( inpaint_mask, cvScalarAll(0)); // 将模板设为黑色
-				//			cvShowImage( "image", img ); // 显示原图
-				//	cvShowImage("w", videoframe);
+			cvNamedWindow("watershed transform", 0);
+			img = cvCloneImage( videoframe );
+			inpaint_mask = cvCreateImage( cvGetSize(img), 8, 1 );
+			cvSet( inpaint_mask, cvScalarAll(0)); // 将模板设为黑色
+			//			cvShowImage( "image", img ); // 显示原图
+			//	cvShowImage("w", videoframe);
 
-				cvShowImage( "watershed transform", inpaint_mask ); // 显示模板原图
-				cvSetMouseCallback( "ultrasound tongue", on_mouse, 0 ); 
+			cvShowImage( "watershed transform", inpaint_mask ); // 显示模板原图
+			cvSetMouseCallback( "ultrasound tongue", on_mouse, 0 ); 
 
-				cvWaitKey(0);
+			cvWaitKey(0);
 			}
 
 			if(!hasCut)
 			{
-				cvShowImage("ultrasound tongue", videoframe);
+			cvShowImage("ultrasound tongue", videoframe);
 			}else{
-
+			*/
+			{
+				img = cvCloneImage( videoframe );
 				IplImage *segImage=cvCreateImage(cvGetSize(img),8,3);
 				//	cvZero(segImage); // 加这句可使结果第三个图的背景为黑色
 				cvSet( segImage, cvScalarAll(255)); // 将模板设为白色
 				videoframe = cvQueryFrame( videoplayback );
 
+
+				inpaint_mask=cvLoadImage("watershed.png");
+
+
+
 				cvCopy(videoframe,segImage, inpaint_mask); // 使用模板拷贝
 				//	cvShowImage( "w", segImage ); // 显示抠图结果
 				cvSaveImage("segImage.png",segImage); // 保存抠图结果
 
-				Mat dst = cv::cvarrToMat(segImage)(Rect(min_pt.x, min_pt.y, max_pt.x - min_pt.x,  max_pt.y - min_pt.y));
+				//cvSaveImage("watershed.png",inpaint_mask); // 保存watershed
 
+
+				min_pt = Point(111,41);
+				max_pt = Point(430,215);
+				Mat dst = cv::cvarrToMat(segImage)(Rect(min_pt.x, min_pt.y, max_pt.x - min_pt.x,  max_pt.y - min_pt.y));
+				//				printf("%d, %d, %d, %d",min_pt.x, min_pt.y, max_pt.x - min_pt.x,  max_pt.y - min_pt.y );
 
 				//namedWindow("dst");
 				//imshow("dst", dst);
@@ -186,7 +215,7 @@ LiveConnection::LiveConnection(void)
 				Mat logo = imread("transparentBlack.png");
 				Mat mask = imread("transparentBlack.png",0); //need to be png
 
-				double scale = 0.4;
+				double scale = 0.3;
 				Size ResImgSiz = Size(logo.cols*scale, logo.rows*scale);
 				Mat ResImg = Mat(ResImgSiz, logo.type());
 
@@ -208,15 +237,18 @@ LiveConnection::LiveConnection(void)
 				imageROI = frame(Rect(roix, roiy, ResImg.cols, ResImg.rows));
 				ResImg.copyTo(imageROI,mask1);
 
-				cvDestroyWindow("ultrasound tongue");
-				cvDestroyWindow("watershed transform");
-				stopFaceDetect = true;
+				//		cvDestroyWindow("ultrasound tongue");
+				//		cvDestroyWindow("watershed transform");
+				//	stopFaceDetect = true;
 
 			}
 			//-- 3. Apply the classifier to the frame
 			if( !frame.empty())
 			{ 
 				detectAndDisplay( frame ); 
+
+
+
 			}else
 			{ printf(" --(!) No captured frame -- Break!"); break; }
 
@@ -226,6 +258,12 @@ LiveConnection::LiveConnection(void)
 	}
 	//return 0;
 }
+
+ void LiveConnection::OnButtonClick(UINT uID)
+ {
+	 MessageBox(_T("You hit me!"));
+
+ }
 
 /** @function detectAndDisplay */
 void detectAndDisplay( Mat frame )
@@ -244,58 +282,64 @@ void detectAndDisplay( Mat frame )
 
 	if(!stopFaceDetect){
 
-	for (size_t i = 0; i < faces.size(); i++)
-	{
-		cv::Point center(faces[i].x + faces[i].width*0.5, faces[i].y + faces[i].height*0.5);
-		ellipse(frame, center, cv::Size(faces[i].width*0.8, faces[i].height*0.8), 0, 0, 360, Scalar(0, 255, 0), 4, 8, 0);
-
-		Mat faceROI = frame_gray(faces[i]);
-		//imshow("face", faceROI);
-		std::vector<Rect> nose;
-		std::vector<Rect> mouth;
-
-		Rect mouthROI((int)faces[i].width / 4,(int)(faces[i].height/4)*3.2 ,(int)faces[i].width / 2, (int)faces[i].height / 5);
-		Rect noseROI((int)faces[i].width / 4, (int)(faces[i].height / 2), (int)faces[i].width / 2, (int)faces[i].height / 4);
-		//	imshow("nose",faceROI(noseROI));
-		//	imshow("mouth", faceROI(mouthROI));
-
-		//-- In each face, detect nose,mouth
-
-		nose_cascade.detectMultiScale(faceROI(noseROI), nose, 1.1, 2, 0 | CV_HAAR_SCALE_IMAGE, cv::Size(30, 30));
-		for (size_t j = 0; j < nose.size(); j++)
+		for (size_t i = 0; i < faces.size(); i++)
 		{
-			cv::Point center(faces[i].x + nose[j].x +noseROI.x+ nose[j].width*0.5, faces[i].y + nose[j].y + noseROI.y+ nose[j].height*0.5);
-			int radius = cvRound((nose[j].width + nose[j].height)*0.25);
-			circle(frame, center, radius, Scalar(0, 255, 85), 3, 8, 0);
-		}
+			cv::Point center(faces[i].x + faces[i].width*0.5, faces[i].y + faces[i].height*0.5);
+			//	ellipse(frame, center, cv::Size(faces[i].width*0.8, faces[i].height*0.8), 0, 0, 360, Scalar(0, 255, 0), 4, 8, 0);
 
-		mouth_cascade.detectMultiScale(faceROI(mouthROI), mouth, 1.1, 2, 0 | CV_HAAR_SCALE_IMAGE, cv::Size(30, 30));
+			Mat faceROI = frame_gray(faces[i]);
+			//imshow("face", faceROI);
+			std::vector<Rect> nose;
+			std::vector<Rect> mouth;
 
-	//	for (size_t j = 0; j < mouth.size(); j++)
-		{
-			cv::Point center(faces[i].x  + mouthROI.x, faces[i].y  + mouthROI.y );
-			int radius = cvRound((mouthROI.width)*0.6);
+			Rect mouthROI((int)faces[i].width / 4,(int)(faces[i].height/4)*3.2 ,(int)faces[i].width / 2, (int)faces[i].height / 5);
+			Rect noseROI((int)faces[i].width / 4, (int)(faces[i].height / 2), (int)faces[i].width / 2, (int)faces[i].height / 4);
+			//	imshow("nose",faceROI(noseROI));
+			//	imshow("mouth", faceROI(mouthROI));
 
-			cv::Point topleft(faces[i].x+ mouthROI.tl().x, faces[i].y+ mouthROI.tl().y);
-			cv::Point bottomright(faces[i].x+ mouthROI.br().x, faces[i].y+ mouthROI.br().y);
+			//-- In each face, detect nose,mouth
 
-			rectangle(frame,topleft, bottomright,Scalar(85, 100, 255), 3, 8, 0);
-			//circle(frame, center, radius, Scalar(85, 100, 255), 2, 8, 0);
-			if(!hasInit){
-			mouthcenterx = faces[i].x+(mouthROI.tl()+mouthROI.br()).x/2 - 20;
-			mouthcentery = faces[i].y+(mouthROI.tl()+mouthROI.br()).y/2;
-			hasInit = true;
+			nose_cascade.detectMultiScale(faceROI(noseROI), nose, 1.1, 2, 0 | CV_HAAR_SCALE_IMAGE, cv::Size(30, 30));
+			for (size_t j = 0; j < nose.size(); j++)
+			{
+				cv::Point center(faces[i].x + nose[j].x +noseROI.x+ nose[j].width*0.5, faces[i].y + nose[j].y + noseROI.y+ nose[j].height*0.5);
+				int radius = cvRound((nose[j].width + nose[j].height)*0.25);
+				//		circle(frame, center, radius, Scalar(0, 255, 85), 3, 8, 0);
 			}
 
+			mouth_cascade.detectMultiScale(faceROI(mouthROI), mouth, 1.1, 2, 0 | CV_HAAR_SCALE_IMAGE, cv::Size(30, 30));
+
+			//	for (size_t j = 0; j < mouth.size(); j++)
+			{
+				cv::Point center(faces[i].x  + mouthROI.x, faces[i].y  + mouthROI.y );
+				int radius = cvRound((mouthROI.width)*0.6);
+
+				cv::Point topleft(faces[i].x+ mouthROI.tl().x, faces[i].y+ mouthROI.tl().y);
+				cv::Point bottomright(faces[i].x+ mouthROI.br().x, faces[i].y+ mouthROI.br().y);
+
+				//		rectangle(frame,topleft, bottomright,Scalar(85, 100, 255), 3, 8, 0);
+				//circle(frame, center, radius, Scalar(85, 100, 255), 2, 8, 0);
+				if(!hasInit){
+					mouthcenterx = faces[i].x+(mouthROI.tl()+mouthROI.br()).x/2 - 20;
+					mouthcentery = faces[i].y+(mouthROI.tl()+mouthROI.br()).y/2;
+					hasInit = true;
+				}
+
+
+			}
 
 		}
-
 	}
-		}
+
+	
 	//-- Show what you got
-	imshow( window_name, frame );
-//	resizeWindow(window_name,400,300);
+	//imshow( window_name, frame );
+	cvShowImage( "Capture - Face detection", &IplImage(frame) );
+	//	resizeWindow(window_name,400,300);
 	moveWindow(window_name, 500, 100);
+	
+
+
 }
 
 

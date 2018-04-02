@@ -7,9 +7,10 @@
 #include "UltrasoundProjectDlg.h"
 #include "afxdialogex.h"
 #include "SelectWords.h"
-#include "LiveConnection.h"
+#include "LiveCam.h"
 #include <winsock.h> //need to put before mysql.hwordString
 #include <mysql.h>//console project need to include <winsock.h>
+#include <thread> 
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -159,16 +160,26 @@ HCURSOR CUltrasoundProjectDlg::OnQueryDragIcon()
 }
 
 
+void thread01()  
+{  
+     LiveCam lc_dlg;
+	lc_dlg.DoModal();  
+}  
+
 
 void CUltrasoundProjectDlg::OnBnClickedOk()
 {
 	// TODO: Add your control notification handler code here
 	SelectWords sw_dlg;
+
+	
+
    ShowWindow(SW_HIDE);
    //show select words dialog
  //  sw_dlg.DoModal(); 
 
-  // LiveConnection();
+   thread task01(thread01);  
+   task01.detach(); 
 
    MYSQL *pConn;
  pConn = mysql_init(NULL);
@@ -213,6 +224,7 @@ void CUltrasoundProjectDlg::OnBnClickedOk()
 
  mysql_free_result(result);
  mysql_close(pConn);
-    sw_dlg.DoModal(); 
+  //  sw_dlg.DoModal(); 
+
 
 }

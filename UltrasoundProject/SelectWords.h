@@ -22,8 +22,7 @@ protected:
     virtual BOOL OnInitDialog();
 	DECLARE_MESSAGE_MAP()
 public:
-    CListBox m_listBox;
-	afx_msg void OnLbnSelchangeList1();
+	afx_msg void OnButtonClick(UINT uID);
 	afx_msg void OnBnClickedButton1();
 	string strSelect;
 	vector<string> add_vector;

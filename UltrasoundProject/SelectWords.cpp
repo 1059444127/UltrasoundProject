@@ -9,6 +9,8 @@
 #include "PlayVideo.h"
 
 
+#define IDC_D_BTN 10000
+
 // SelectWords dialog
 IMPLEMENT_DYNAMIC(SelectWords, CDialogEx)
 
@@ -24,44 +26,52 @@ SelectWords::~SelectWords()
 void SelectWords::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
-	DDX_Control(pDX, IDC_LIST1, m_listBox);
 }
 
+
+
 BEGIN_MESSAGE_MAP(SelectWords, CDialogEx)
-	ON_LBN_SELCHANGE(IDC_LIST1, &SelectWords::OnLbnSelchangeList1)
 	ON_BN_CLICKED(IDC_BUTTON1, &SelectWords::OnBnClickedButton1)
 	ON_BN_CLICKED(IDC_BUTTON2, &SelectWords::OnBnClickedButton2)
+	ON_COMMAND_RANGE(IDC_D_BTN,IDC_D_BTN+19-1,OnButtonClick)
 END_MESSAGE_MAP()
 
 BOOL SelectWords::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
 
+	/*
 	// TODO: Add extra initialization here
 	for (int index = 0; index < wordString.size(); index++) {
 		m_listBox.AddString(CA2W(wordString[index].c_str()));  
 	//	add_list.AddString(CA2W(pathString[index].c_str()));
 		add_vector.push_back(pathString[index]); 
        }
+*/
+		int buttonSize = wordString.size();
+
+	CButton* btn = new CButton[buttonSize];  
+DWORD dwStyle = WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON;  
+for(int i = 0; i < buttonSize; i++)
+{  
+    btn[i].Create(CA2W(wordString[i].c_str()), dwStyle,CRect(20+130*(i%5),20+80*(i/5),140+130*(i%5),60+80*(i/5)),this,IDC_D_BTN+i); 
+	add_vector.push_back(pathString[i]); 
+} 
 
 
     return TRUE;
 }
 
-// SelectWords message handlers
+// SelectWords
+ void SelectWords::OnButtonClick(UINT uID)
+ {
+	   int nCursel = uID - IDC_D_BTN;
+	   strSelect = add_vector[nCursel];		
+	//	but.SetState(!((&but).GetState() & 0x0004));
+
+ }
 
 
-void SelectWords::OnLbnSelchangeList1()
-{
-	// TODO: Add your control notification handler code here
-	CString strText;   
-    int nCurSel;   
-        
-    nCurSel = m_listBox.GetCurSel();            
-    m_listBox.GetText(nCurSel, strText);    
-	strSelect = add_vector[nCurSel];
-    SetDlgItemText(IDC_EDIT1, strText);
-}
 
 //Next
 void SelectWords::OnBnClickedButton1()

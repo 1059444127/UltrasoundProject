@@ -107,7 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CWMPPlayer4.h" />
-    <ClInclude Include="LiveConnection.h" />
+    <ClInclude Include="LiveCam.h" />
     <ClInclude Include="PlayVideo.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="SelectWords.h" />
@@ -118,7 +118,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CWMPPlayer4.cpp" />
-    <ClCompile Include="LiveConnection.cpp" />
+    <ClCompile Include="LiveCam.cpp" />
     <ClCompile Include="PlayVideo.cpp" />
     <ClCompile Include="SelectWords.cpp" />
     <ClCompile Include="stdafx.cpp">
