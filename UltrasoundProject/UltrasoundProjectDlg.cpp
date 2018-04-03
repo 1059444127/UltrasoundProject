@@ -224,7 +224,7 @@ void CUltrasoundProjectDlg::OnBnClickedOk()
 
  mysql_free_result(result);
  mysql_close(pConn);
-  //  sw_dlg.DoModal(); 
+   sw_dlg.DoModal(); 
 
 
 }

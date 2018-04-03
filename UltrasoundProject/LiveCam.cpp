@@ -43,15 +43,21 @@ CvPoint end_pt = {-1,-1};
 CvPoint min_pt, max_pt;
 bool hasCut = false;
 int mouthcenterx, mouthcentery = 0;
-Rect box; 
 int tonguex = 180;
 int tonguey = 300;
 int facewinx = 500;
 int facewiny = 200;
 bool hasInit = false;
 bool stopFaceDetect = false;
+bool manualMove = false;
 
+IplImage* org = 0;
+IplImage* tmp = 0;
+IplImage* dst = 0; 
+CvRect rect; 
 
+Mat imageROI;
+Mat liveframe;
 
 // LiveCam dialog
 
@@ -76,6 +82,7 @@ void LiveCam::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(LiveCam, CDialogEx)
 	ON_BN_CLICKED(IDOPEN, &LiveCam::OnBnClickedOpen)
 	ON_BN_CLICKED(IDC_CLOSE, &LiveCam::OnBnClickedClose)
+	ON_BN_CLICKED(IDC_MOVE, &LiveCam::OnBnClickedMove)
 END_MESSAGE_MAP()
 
 BOOL LiveCam::OnInitDialog()
@@ -110,7 +117,7 @@ void LiveCam::OnBnClickedOpen()
 
 	CvCapture* capture; 
 	CvCapture* videoplayback;
-	Mat liveframe;
+	//	Mat liveframe;
 	IplImage* videoframe=0;
 	int delay = 30;
 	char const* mysideProfile = "FullSizeRender.avi";
@@ -157,7 +164,8 @@ void LiveCam::OnBnClickedOpen()
 
 			inpaint_mask=cvLoadImage("watershed.png");
 
-
+			//smooth border
+			cvSmooth(inpaint_mask,inpaint_mask,CV_BLUR,3,3);
 
 			cvCopy(videoframe,segImage, inpaint_mask); // 使用模板拷贝
 			//	cvShowImage( "w", segImage ); // 显示抠图结果
@@ -194,7 +202,7 @@ void LiveCam::OnBnClickedOpen()
 			threshold(mask,mask,254,255,CV_THRESH_BINARY);
 			Mat mask1 = 255 - MaskImg; 
 			//imshow("img",mask1);
-			Mat imageROI;
+			//Mat imageROI;
 			//		printf("mouthcenterx: %d + mouthcentery: %d -- framecoles: %d + framerows: %d ", mouthcenterx, mouthcentery, liveframe.cols, liveframe.rows );
 
 			int roix = mouthcenterx>0?mouthcenterx: tonguex;
@@ -292,7 +300,7 @@ void detectAndDisplay( Mat frame, int x, int y )
 				cv::Point topleft(faces[i].x+ mouthROI.tl().x, faces[i].y+ mouthROI.tl().y);
 				cv::Point bottomright(faces[i].x+ mouthROI.br().x, faces[i].y+ mouthROI.br().y);
 
-			//	rectangle(frame,topleft, bottomright,Scalar(85, 100, 255), 3, 8, 0);
+				//	rectangle(frame,topleft, bottomright,Scalar(85, 100, 255), 3, 8, 0);
 				//circle(frame, center, radius, Scalar(85, 100, 255), 2, 8, 0);
 				if(!hasInit){
 					mouthcenterx = faces[i].x+(mouthROI.tl()+mouthROI.br()).x/2 - 20;
@@ -321,3 +329,43 @@ void LiveCam::OnBnClickedClose()
 	flag = false;
 	CDialogEx::OnCancel();
 }
+
+void on_mouse( int event, int x, int y, int flags, void* ustc)
+{
+	static CvPoint p={-1,-1};
+	static int xrect;
+	static int yrect;
+
+
+	if(event==CV_EVENT_LBUTTONDOWN)
+	{
+		p=cvPoint(x,y);
+		xrect=rect.x;
+		yrect=rect.y;
+	}
+	else if(event==CV_EVENT_MOUSEMOVE && (flags & CV_EVENT_FLAG_LBUTTON))
+	{
+		int dx=x-p.x;
+		int dy=y-p.y;
+
+		if(mouthcenterx+dx>0&&mouthcenterx+dx<liveframe.cols){
+			mouthcenterx +=dx;
+		}else{
+			return;
+		}
+		 if(mouthcentery+dy>0&&mouthcentery+dy<liveframe.rows){
+			mouthcentery +=dy;
+		}else {
+			return;
+		}
+	}
+}
+
+
+void LiveCam::OnBnClickedMove()
+{
+	// TODO: Add your control notification handler code here
+	manualMove = true;
+	cvSetMouseCallback( "view", on_mouse, 0 );
+}
+

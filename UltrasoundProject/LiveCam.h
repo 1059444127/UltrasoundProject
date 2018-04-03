@@ -22,4 +22,5 @@ public:
 	bool flag;
 	afx_msg void OnBnClickedOpen();
 	afx_msg void OnBnClickedClose();
+	afx_msg void OnBnClickedMove();
 };

@@ -1,4 +1,4 @@
-﻿Build started 4/1/2018 11:09:23 PM.
+﻿Build started 4/3/2018 10:31:37 AM.
      1>Project "D:\用户目录\我的文档\Visual Studio 2012\Projects\UltrasoundProject\UltrasoundProject\UltrasoundProject.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Program Files\MySQL\MySQL Server 5.5\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _CRT_SECURE_NO_WARNINGS /D _UNICODE /D UNICODE /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\UltrasoundProject.pch" /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /showIncludes /analyze- /errorReport:prompt LiveCam.cpp
@@ -314,10 +314,11 @@
          Note: including file:  D:\opencv\build\include\opencv2/core/internal.hpp
          Note: including file:   D:\opencv\build\include\opencv2/core/core.hpp
          Note: including file:   D:\opencv\build\include\opencv2/core/types_c.h
-     1>d:\用户目录\我的文档\visual studio 2012\projects\ultrasoundproject\ultrasoundproject\livecam.cpp(184): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>d:\用户目录\我的文档\visual studio 2012\projects\ultrasoundproject\ultrasoundproject\livecam.cpp(189): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>d:\用户目录\我的文档\visual studio 2012\projects\ultrasoundproject\ultrasoundproject\livecam.cpp(271): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+     1>d:\用户目录\我的文档\visual studio 2012\projects\ultrasoundproject\ultrasoundproject\livecam.cpp(192): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+     1>d:\用户目录\我的文档\visual studio 2012\projects\ultrasoundproject\ultrasoundproject\livecam.cpp(197): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
      1>d:\用户目录\我的文档\visual studio 2012\projects\ultrasoundproject\ultrasoundproject\livecam.cpp(279): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+     1>d:\用户目录\我的文档\visual studio 2012\projects\ultrasoundproject\ultrasoundproject\livecam.cpp(287): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+     1>cl : Command line warning D9028: minimal rebuild failure, reverting to normal build
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\用户目录\我的文档\Visual Studio 2012\Projects\UltrasoundProject\Debug\UltrasoundProject.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Program Files\MySQL\MySQL Server 5.5\lib" libmysql32.lib opencv_ml2413d.lib opencv_calib3d2413d.lib opencv_contrib2413d.lib opencv_core2413d.lib opencv_features2d2413d.lib opencv_flann2413d.lib opencv_gpu2413d.lib opencv_highgui2413d.lib opencv_imgproc2413d.lib opencv_legacy2413d.lib opencv_objdetect2413d.lib opencv_ts2413d.lib opencv_video2413d.lib opencv_nonfree2413d.lib opencv_ocl2413d.lib opencv_photo2413d.lib opencv_stitching2413d.lib opencv_superres2413d.lib opencv_videostab2413d.lib opencv_objdetect2413.lib opencv_ts2413.lib opencv_video2413.lib opencv_nonfree2413.lib opencv_ocl2413.lib opencv_photo2413.lib opencv_stitching2413.lib opencv_superres2413.lib opencv_videostab2413.lib opencv_calib3d2413.lib opencv_contrib2413.lib opencv_core2413.lib opencv_features2d2413.lib opencv_flann2413.lib opencv_gpu2413.lib opencv_highgui2413.lib opencv_imgproc2413.lib opencv_legacy2413.lib opencv_ml2413.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:"C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\Include\Manifest\dpiaware.manifest" /DEBUG /PDB:"D:\用户目录\我的文档\Visual Studio 2012\Projects\UltrasoundProject\Debug\UltrasoundProject.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /ENTRY:"wWinMainCRTStartup" /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\用户目录\我的文档\Visual Studio 2012\Projects\UltrasoundProject\Debug\UltrasoundProject.lib" /MACHINE:X86 Debug\UltrasoundProject.res
          Debug\CWMPPlayer4.obj
@@ -332,4 +333,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:16.25
+Time Elapsed 00:00:27.12
