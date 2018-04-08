@@ -110,6 +110,7 @@
     <ClInclude Include="LiveCam.h" />
     <ClInclude Include="PlayVideo.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="SelectROI.h" />
     <ClInclude Include="SelectWords.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
@@ -120,6 +121,7 @@
     <ClCompile Include="CWMPPlayer4.cpp" />
     <ClCompile Include="LiveCam.cpp" />
     <ClCompile Include="PlayVideo.cpp" />
+    <ClCompile Include="SelectROI.cpp" />
     <ClCompile Include="SelectWords.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

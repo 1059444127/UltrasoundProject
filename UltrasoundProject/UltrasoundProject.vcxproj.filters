@@ -45,6 +45,9 @@
     <ClInclude Include="LiveCam.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SelectROI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="UltrasoundProject.cpp">
@@ -66,6 +69,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="LiveCam.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectROI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

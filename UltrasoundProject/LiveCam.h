@@ -1,6 +1,7 @@
 #pragma once
 
 #include <opencv2/opencv.hpp>
+#include "afxwin.h"
 // LiveCam dialog
 
 class LiveCam : public CDialogEx
@@ -23,4 +24,8 @@ public:
 	afx_msg void OnBnClickedOpen();
 	afx_msg void OnBnClickedClose();
 	afx_msg void OnBnClickedMove();
+	afx_msg void OnBnClickedScale();
+	CEdit m_Edit_Scale;
+	CEdit m_Edit_Rotate;
+	afx_msg void OnBnClickedRotate();
 };

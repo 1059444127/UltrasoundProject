@@ -11,6 +11,8 @@
 #include <winsock.h> //need to put before mysql.hwordString
 #include <mysql.h>//console project need to include <winsock.h>
 #include <thread> 
+#include "SelectROI.h"
+
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -71,6 +73,7 @@ BEGIN_MESSAGE_MAP(CUltrasoundProjectDlg, CDialogEx)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDOK, &CUltrasoundProjectDlg::OnBnClickedOk)
+	ON_BN_CLICKED(IDCANCEL, &CUltrasoundProjectDlg::OnBnClickedCancel)
 END_MESSAGE_MAP()
 
 
@@ -78,6 +81,8 @@ END_MESSAGE_MAP()
 
 BOOL CUltrasoundProjectDlg::OnInitDialog()
 {
+
+
 	CDialogEx::OnInitDialog();
 
 	// Add "About..." menu item to system menu.
@@ -123,9 +128,12 @@ void CUltrasoundProjectDlg::OnSysCommand(UINT nID, LPARAM lParam)
 	}
 }
 
+
+
 // If you add a minimize button to your dialog, you will need the code below
 //  to draw the icon.  For MFC applications using the document/view model,
 //  this is automatically done for you by the framework.
+
 
 void CUltrasoundProjectDlg::OnPaint()
 {
@@ -174,7 +182,7 @@ void CUltrasoundProjectDlg::OnBnClickedOk()
 
 	
 
-   ShowWindow(SW_HIDE);
+//   ShowWindow(SW_HIDE);
    //show select words dialog
  //  sw_dlg.DoModal(); 
 
@@ -224,7 +232,18 @@ void CUltrasoundProjectDlg::OnBnClickedOk()
 
  mysql_free_result(result);
  mysql_close(pConn);
-   sw_dlg.DoModal(); 
+  // sw_dlg.DoModal(); 
 
+
+}
+
+
+void CUltrasoundProjectDlg::OnBnClickedCancel()
+{
+	// TODO: Add your control notification handler code here
+	//CDialogEx::OnCancel();
+	//PostMessage(WM_QUIT,0,0);
+
+	SelectROI selectROI_dlg;
 
 }
